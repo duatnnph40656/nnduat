@@ -319,11 +319,7 @@ public class Zone {
 
     public void pickItem(Player player, int itemMapId) {
         ItemMap itemMap = getItemMapByItemMapId(itemMapId);
-//        if (itemMap instanceof Satellite) {
-//            return;
-//        }
         if (itemMap != null) {
-//                if (!itemMap.isPickedUp) {
             if (itemMap.playerId == player.id || itemMap.playerId == -1) {
                 Item item = ItemService.gI().createItemFromItemMap(itemMap);
 //                if (itemMap.itemTemplate.id == 648) {
@@ -337,22 +333,10 @@ public class Zone {
 //                    InventoryService.gI().sendItemBags(player);
 //                }
                 boolean picked = true;
-//                if (!ItemMapService.gI().isNamecBall(item.template.id){
-//                    picked = InventoryService.gI().addItemBag(player, itemMapId);
-//                }
-//                if (itemMap instanceof NamekBall ball) {
-//                    NamekBallWar.gI().pickBall(player, ball);
-//                    return;
-//                }
-//                int maxQuantity = 0;
-//                if (ItemService.gI().isItemNoLimitQuantity(item.template.id)) {
-//                    maxQuantity = 99999;
-//                }
-
+                if (!ItemMapService.gI().isNamecBall(item.template.id)) {
+                    picked = InventoryService.gI().addItemBag(player, item);
+                }
                 if (picked) {
-//                    if (itemMap.itemTemplate.id != 74) {
-//                        itemMap.isPickedUp = true;
-//                    }
                     int itemType = item.template.type;
                     Message msg;
                     try {

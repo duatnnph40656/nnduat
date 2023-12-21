@@ -62,7 +62,9 @@ public class InventoryService {
     }
 
     public boolean addItemBag(Player player, Item item) {
-        
+        if (addItemSpecial(player, item)) {
+            return true;
+        }
         //ngoc rong sao den
         if (ItemMapService.gI().isBlackBall(item.template.id)) {
             return BlackBallWar.gI().pickBlackBall(player, item);
@@ -162,26 +164,46 @@ public class InventoryService {
         return false;
     }
 
+    private boolean addItemSpecial(Player player, Item item) {
+        switch (item.template.id) {
+            case 568: //quả trứng
+                if (player.mabuEgg == null) {
+                    MabuEgg.createMabuEgg(player);
+                }
+                return true;
+
+            case 453: //tàu tennis
+                player.haveTennisSpaceShip = true;
+                return true;
+            case 74: //đùi gà nướng
+                player.nPoint.setFullHpMp();
+                PlayerService.gI().sendInfoHpMp(player);
+                return true;
+            case 191: //cà chua
+                player.nPoint.setHp(0);
+                PlayerService.gI().sendInfoHp(player);
+                return true;
+            case 192: //cà rốt
+                player.nPoint.setMp(0);
+                PlayerService.gI().sendInfoMp(player);
+                return true;
+        }
+        return false;
+    }
+
     public boolean addItemList(List<Item> items, Item itemAdd) {
         //nếu item ko có option, add option rỗng vào
         if (itemAdd.itemOptions.isEmpty()) {
             itemAdd.itemOptions.add(new ItemOption(73, 0));
         }
-
         //item cộng thêm chỉ số param: tự động luyện tập
-        int optionId = isItemIncrementalOption(itemAdd);
-        if (optionId != -1) {
-            int param = 0;
-            for (ItemOption io : itemAdd.itemOptions) {
-                if (io.optionTemplate.id == optionId) {
-                    param = io.param;
-                }
-            }
+        int[] idParam = isItemIncrementalOption(itemAdd);
+        if (idParam[0] != -1) {
             for (Item it : items) {
                 if (it.isNotNullItem() && it.template.id == itemAdd.template.id) {
                     for (ItemOption io : it.itemOptions) {
-                        if (io.optionTemplate.id == optionId) {
-                            io.param += param;
+                        if (io.optionTemplate.id == idParam[0]) {
+                            io.param += idParam[1];
                         }
                     }
                     return true;
@@ -273,11 +295,13 @@ public class InventoryService {
         }
 
         //add item vào ô mới
-        for (int i = 0; i < items.size(); i++) {
-            if (!items.get(i).isNotNullItem()) {
-                items.set(i, ItemService.gI().copyItem(itemAdd));
-                itemAdd.quantity = 0;
-                return true;
+        if (itemAdd.quantity > 0) {
+            for (int i = 0; i < items.size(); i++) {
+                if (!items.get(i).isNotNullItem()) {
+                    items.set(i, ItemService.gI().copyItem(itemAdd));
+                    itemAdd.quantity = 0;
+                    return true;
+                }
             }
         }
         return false;
@@ -304,18 +328,14 @@ public class InventoryService {
         }
     }
 
-    private byte isItemIncrementalOption(Item item) { //trả về id option template
-        int temp = item.template.id;
-        byte opp = -1;
-        switch (temp) {
-            case 521:
-                opp = 1;
-                break;
-            default:
-                break;
-
+    private int[] isItemIncrementalOption(Item item) {
+        for (ItemOption io : item.itemOptions) {
+            switch (io.optionTemplate.id) {
+                case 1:
+                    return new int[]{io.optionTemplate.id, io.param};
+            }
         }
-        return opp;
+        return new int[]{-1, -1};
     }
 
     public void throwItem(Player player, int where, int index) {

@@ -1,9 +1,10 @@
 package nro.models.boss;
 
+import nro.models.boss.boss_tuonglai.Superblackgoku;
+import nro.models.boss.boss_tuonglai.Blackgoku;
 import nro.consts.ConstEvent;
 import nro.consts.ConstMap;
 import nro.models.boss.bill.*;
-import nro.models.boss.bosstuonglai.*;
 import nro.models.boss.broly.*;
 import nro.models.boss.cell.*;
 import nro.models.boss.chill.*;

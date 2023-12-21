@@ -9,7 +9,7 @@ server.db.maxactive=99999
 ##config server
 server.sv=1
 server.port=14445
-server.sv1=HeoKai:1.55.95.129:14445
+server.sv1=HeoKai:127.0.0.1:14445
 
 server.waitlogin=5
 server.maxperip=5

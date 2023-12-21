@@ -15,6 +15,7 @@ public class ItemTime {
     //id item text
     public static final byte DOANH_TRAI = 0;
     public static final byte BAN_DO_KHO_BAU = 1;
+    public static final byte KHI_GAS = 2;
 
     public static final int TIME_ITEM = 600000;
     public static final int TIME_OPEN_POWER = 86400000;

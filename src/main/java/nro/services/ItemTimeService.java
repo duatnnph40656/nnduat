@@ -11,6 +11,7 @@ import nro.server.io.Message;
 import nro.utils.Log;
 
 import static nro.models.item.ItemTime.*;
+import nro.models.map.phoban.KhiGas;
 
 /**
  *
@@ -130,6 +131,15 @@ public class ItemTimeService {
             int secondPassed = (int) ((System.currentTimeMillis() - player.clan.timeOpenDoanhTrai) / 1000);
             int secondsLeft = (DoanhTrai.TIME_DOANH_TRAI / 1000) - secondPassed;
             sendTextTime(player, DOANH_TRAI, "Doanh trại độc nhãn", secondsLeft);
+        }
+    }
+
+    public void sendTextGas(Player player) {
+        if (player.clan != null
+                && player.clan.timeOpenKhiGas != 0) {
+            int secondPassed = (int) ((System.currentTimeMillis() - player.clan.timeOpenKhiGas) / 1000);
+            int secondsLeft = (KhiGas.TIME_KHI_GAS / 1000) - secondPassed;
+            sendTextTime(player, KHI_GAS, "Khí Gas Hủy Diệt", secondsLeft);
         }
     }
 

@@ -61,6 +61,7 @@ import java.util.logging.Logger;
  * @copyright 💖 GirlkuN 💖
  */
 public class Manager {
+
     private static Manager i;
 
     public static byte SERVER = 1;
@@ -84,7 +85,6 @@ public class Manager {
     public static String apiKey = "abcdef";
     public static String executeCommand;
     public static boolean debug;
-
 
     public static final List<String> TOP_PLAYERS = new ArrayList<>();
 
@@ -134,10 +134,10 @@ public class Manager {
         loadDatabase();
         NpcFactory.createNpcConMeo();
         NpcFactory.createNpcRongThieng();
-        Event.initEvent(gameConfig.getEvent());
-        if (Event.isEvent()) {
-            Event.getInstance().init();
-        }
+//        Event.initEvent(gameConfig.getEvent());
+//        if (Event.isEvent()) {
+//            Event.getInstance().init();
+//        }
         initRandomItem();
         NamekBallManager.gI().initBall();
     }
@@ -671,7 +671,6 @@ public class Manager {
             ps.close();
             Log.success("Load npc template thành công (" + NPC_TEMPLATES.size() + ")");
 
-
             initMap();
 
             //load clan
@@ -728,7 +727,6 @@ public class Manager {
             ps.close();
 
             Log.success("Load clan thành công (" + CLANS.size() + "), clan next id: " + Clan.NEXT_ID);
-
 
             try {
                 if (rs != null) {

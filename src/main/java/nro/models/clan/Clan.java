@@ -25,6 +25,7 @@ import nro.utils.Util;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import nro.models.map.phoban.KhiGas;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -77,7 +78,9 @@ public class Clan {
     public DoanhTrai doanhTrai;
     public Player playerOpenDoanhTrai;
     public long timeOpenDoanhTrai;
-
+    public KhiGas khigas;
+    public long timeOpenKhiGas;
+    public Player playerOpenKhiGas;
     public BanDoKhoBau banDoKhoBau;
     public SnakeRoad snakeRoad;
     public Player playerOpenBanDoKhoBau;

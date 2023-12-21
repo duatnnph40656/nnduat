@@ -30,6 +30,7 @@ public class ChangeMapService {
 
     private static final byte EFFECT_GO_TO_TUONG_LAI = 0;
     private static final byte EFFECT_GO_TO_BDKB = 1;
+    private static final byte EFFECT_GO_TO_KG = 2;
 
     public static final byte AUTO_SPACE_SHIP = -1;
     public static final byte NON_SPACE_SHIP = 0;
@@ -474,6 +475,15 @@ public class ChangeMapService {
             player.isGotoFuture = true;
             spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
             effectChangeMap(player, 60, EFFECT_GO_TO_TUONG_LAI);
+        }
+    }
+
+    public void goToGas(Player player) {
+        if (!player.isGoToKhiGas) {
+            player.lastTimeGoToKhiGas = System.currentTimeMillis();
+            player.isGoToKhiGas = true;
+            spaceShipArrive(player, (byte) 1, DEFAULT_SPACE_SHIP);
+            effectChangeMap(player, 60, EFFECT_GO_TO_KG);
         }
     }
 

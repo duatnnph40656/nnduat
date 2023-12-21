@@ -75,7 +75,7 @@ public class MobService {
             if (player.charms.tdThuHut > System.currentTimeMillis()) {
                 for (ItemMap item : items) {
                     if (item.itemTemplate.id != 590) {
-                        ItemMapService.gI().pickItem(player, item.itemMapId,true);
+                        ItemMapService.gI().pickItem(player, item.itemMapId, true);
                     }
                 }
             }
@@ -83,7 +83,7 @@ public class MobService {
             if (((Pet) player).master.charms.tdThuHut > System.currentTimeMillis()) {
                 for (ItemMap item : items) {
                     if (item.itemTemplate.id != 590) {
-                        ItemMapService.gI().pickItem(((Pet) player).master, item.itemMapId,true);
+                        ItemMapService.gI().pickItem(((Pet) player).master, item.itemMapId, true);
                     }
                 }
             }
@@ -209,6 +209,11 @@ public class MobService {
     public void initMobBanDoKhoBau(Mob mob, byte level) {
         mob.point.dame = level * 1250 * mob.level * 4;
         mob.point.maxHp = level * 9472 * mob.level * 2 + level * 4263 * mob.tempId;
+    }
+
+    public void initMobGas(Mob mob, byte level) {
+        mob.point.dame = level * 3250 * mob.level * 4;
+        mob.point.maxHp = level * 12472 * mob.level * 2 + level * 7263 * mob.tempId;
     }
 
     public static void main(String[] args) {

@@ -11,11 +11,9 @@ nro\services\ClanService.class
 nro\models\boss\traidat\CHICHITHO.class
 nro\resources\RNormal.class
 nro\models\boss\iboss\IBossInit.class
-nro\services\func\setLockInventory.class
 nro\server\io\MessageSender.class
 nro\models\map\dungeon\zones\ZDungeon.class
 nro\models\item\HeadAvatar.class
-nro\services\TopService.class
 nro\services\MapService.class
 nro\models\npc\NpcFactory$44.class
 nro\consts\ConstMap.class
@@ -66,7 +64,6 @@ nro\models\skill\PlayerSkill.class
 nro\models\shop\Shop.class
 nro\services\func\UseItem.class
 nro\consts\ConstItem.class
-nro\models\map\PhuBan$1.class
 nro\models\player\PlayerEvent.class
 nro\models\boss\boss_doanh_trai\BossDoanhTrai.class
 nro\models\boss\chill\Chill2.class
@@ -192,6 +189,7 @@ nro\models\PartManager.class
 nro\models\boss\tieudoisatthu\TieuDoiTruong.class
 nro\models\item\FlagBag.class
 nro\models\skill\Skill.class
+nro\services\func\InventoryServiceNew.class
 nro\models\dragon\Poruga$1.class
 nro\models\npc\NpcFactory$1.class
 nro\models\map\Zone.class
@@ -256,7 +254,6 @@ nro\services\SkillService.class
 nro\models\map\SantaCity.class
 nro\models\task\TaskPlayer.class
 nro\event\SummerEvent$1.class
-nro\models\map\PhuBan.class
 nro\consts\BuyLimit.class
 nro\login\LoginService.class
 nro\services\PetService.class
@@ -273,13 +270,11 @@ nro\server\io\MessageCollector.class
 nro\jdbc\daos\GodGK$1.class
 nro\models\boss\bosstuonglai\Blackgoku.class
 nro\models\boss\dhvt\PonPut.class
-nro\models\boss\listboss\SaibamenClone.class
 nro\services\func\Input.class
 nro\models\npc\NpcFactory$9.class
 nro\models\item\MinipetTemplate.class
 nro\models\map\ItemMap.class
 nro\models\npc\NpcFactory$6.class
-nro\models\map\war\NamecBallPainting.class
 nro\consts\ConstPlayer.class
 nro\models\boss\dhvt\TauPayPay.class
 nro\jdbc\daos\GodGK.class
@@ -346,7 +341,6 @@ nro\lib\RandomCollection.class
 nro\models\boss\event\Qilin.class
 nro\consts\MapName.class
 nro\models\boss\nappa\Kuku.class
-nro\models\npc\NpcFactory$47.class
 nro\models\boss\mabu_war\Goku_Tang5.class
 nro\models\map\phoban\DoanhTrai.class
 nro\services\EffSkinService.class
@@ -392,7 +386,6 @@ nro\services\func\SummonDragon.class
 nro\models\boss\cell\XenCon.class
 nro\services\MobService.class
 nro\power\PowerLimit.class
-nro\models\mob\ArrietyDrop.class
 nro\event\Event.class
 nro\resources\entity\EffectData.class
 nro\services\RewardService$RatioStar.class
@@ -401,7 +394,6 @@ nro\models\pvp\ChallengePVP.class
 nro\models\player\Enemy.class
 nro\models\item\Item.class
 nro\services\Service.class
-nro\models\npc\NpcFactory$48.class
 nro\jdbc\daos\AccountDAO.class
 nro\services\IntrinsicService.class
 nro\models\boss\event\Beetle.class
@@ -427,12 +419,9 @@ nro\models\boss\dhvt\Yamcha.class
 nro\models\map\dungeon\Dungeon.class
 nro\services\ItemTimeService.class
 nro\models\boss\boss_ban_do_kho_bau\Zoro.class
-Arriety\OptionTemplate.class
 nro\resources\entity\MobData.class
 nro\jdbc\daos\PlayerDAO.class
-nro\utils\FunctionUtil.class
 nro\models\map\phoban\BanDoKhoBau.class
 nro\models\boss\cold\Cooler2.class
-nro\models\player\UpdateEffChar.class
 nro\services\RewardService.class
 nro\login\LoginSession$NetworkInit.class

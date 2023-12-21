@@ -161,6 +161,9 @@ public class Player {
     public long lastTimeAnXienTrapBDKB;
     private short powerPoint;
     private short percentPowerPont;
+    
+    public boolean isGoToKhiGas;
+    public long lastTimeGoToKhiGas;
 
     public long lastTimePickItem;
     @Setter

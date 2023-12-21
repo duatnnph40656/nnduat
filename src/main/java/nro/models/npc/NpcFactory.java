@@ -1382,17 +1382,22 @@ public class NpcFactory {
                         @Override
                         public void openBaseMenu(Player player) {
                             if (canOpenNpc(player)) {
-                                if (this.mapId == 5 || this.mapId == 20 || this.mapId == 13 || this.mapId == 84) {
-                                    this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi tìm ta có việc gì?",
-                                            "Ép sao\ntrang bị", "Pha lê\nhóa\ntrang bị", "Đổi Vé\nHủy Diệt",
-                                            "Đồ \n Kích Hoạt", "Gia hạn\nCải trang");
-                                } else if (this.mapId == 121) {
-                                    this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi tìm ta có việc gì?",
-                                            "Về đảo\nrùa");
-                                } else {
-                                    this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi tìm ta có việc gì?",
-                                            "Cửa hàng\nBùa", "Nâng cấp\nVật phẩm", "Nâng cấp\nBông tai\nPorata",
-                                            "Nâng cấp\nChỉ số\nBông tai", "Nhập\nNgọc Rồng");
+                                switch (this.mapId) {
+                                    case 5:
+                                    case 84:
+                                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi tìm ta có việc gì?",
+                                                "Ép sao\ntrang bị", "Pha lê\nhóa\ntrang bị", "Đổi Vé\nHủy Diệt",
+                                                "Đồ \n Kích Hoạt", "Gia hạn\nCải trang");
+                                        break;
+                                    case 121:
+                                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi tìm ta có việc gì?",
+                                                "Về đảo\nrùa");
+                                        break;
+                                    default:
+                                        this.createOtherMenu(player, ConstNpc.BASE_MENU, "Ngươi tìm ta có việc gì?",
+                                                "Cửa hàng\nBùa", "Nâng cấp\nVật phẩm", "Nâng cấp\nBông tai\nPorata",
+                                                "Nâng cấp\nChỉ số\nBông tai", "Nhập\nNgọc Rồng");
+                                        break;
                                 }
                             }
                         }
@@ -1400,7 +1405,7 @@ public class NpcFactory {
                         @Override
                         public void confirmMenu(Player player, int select) {
                             if (canOpenNpc(player)) {
-                                if (this.mapId == 5 || this.mapId == 20 || this.mapId == 13 || this.mapId == 84) {
+                                if (this.mapId == 5 || this.mapId == 84) {
                                     if (player.iDMark.isBaseMenu()) {
                                         switch (select) {
                                             case 0:
